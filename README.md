@@ -1,19 +1,52 @@
 
 # Rapport
 
-**Skriv din rapport här!**
+först började jag med att forka filen webview från github, därefter så började jag göra uppgiften från uppgift beskrivningen punktvis. 
 
-_Du kan ta bort all text som finns sedan tidigare_.
+den första punkten var att ändra namn på appen. det gjorde jag genom att klicka på values och sen strings. <string name="app_name">my app</string>.
 
-## Följande grundsyn gäller dugga-svar:
+den andra punkten var att ge tillgång till internet och det fick jag svar på genom en av föreläsningarna.  <uses-permission android:name="android.permission.INTERNET"/>.
 
-- Ett kortfattat svar är att föredra. Svar som är längre än en sida text (skärmdumpar och programkod exkluderat) är onödigt långt.
-- Svaret skall ha minst en snutt programkod.
-- Svaret skall inkludera en kort övergripande förklarande text som redogör för vad respektive snutt programkod gör eller som svarar på annan teorifråga.
-- Svaret skall ha minst en skärmdump. Skärmdumpar skall illustrera exekvering av relevant programkod. Eventuell text i skärmdumpar måste vara läsbar.
-- I de fall detta efterfrågas, dela upp delar av ditt svar i för- och nackdelar. Dina för- respektive nackdelar skall vara i form av punktlistor med kortare stycken (3-4 meningar).
+den tredje punkten var att skapa en webview element i layout activitymain xml genom att ändra textview till webview. <WebView.
 
-Programkod ska se ut som exemplet nedan. Koden måste vara korrekt indenterad då den blir lättare att läsa vilket gör det lättare att hitta syntaktiska fel.
+den fjärde punkten var att ge webview en id. så jag gav webview id fet. android:id="@+id/fet".
+
+den femte punkten vat att skapa en privat variabel mywebview av typen webview och det görs i main activityjava.    private WebView myWebView;
+
+den 6te punkten var att hitta webview elementet som skapades på steg den första punkten, detta gjordes genom att kalla på id fet som jag gav den.    myWebView = findViewById(R.id.fet);
+
+den 7de punkten säger att skapa en ny webviewclient som läggs till på en webview.  myWebView.setWebViewClient(new WebViewClient());
+
+den 8de punkten var att tillåta java i webviewclienten.  myWebView.getSettings().setJavaScriptEnabled(true);
+
+den 9de punkten var att lägga till en html sida som en asset och det gjorde jag, min heter asset.html.
+
+den 10de punkten var att implimentera en external och internal webpage.
+public void showExternalWebPage(){
+myWebView.loadUrl("https://his.se");
+}
+
+    public void showInternalWebPage(){
+        myWebView.loadUrl("file:///android_asset/asset.html");
+    }
+på internal så har jag min asset.html som url. 
+den 11te punkten var att kalla på funktionerna när man klickar på menyn. 
+
+if (id == R.id.action_external_web) {
+Log.d("==>","Will display external web page");
+showExternalWebPage();
+return true;
+
+        }
+
+        if (id == R.id.action_internal_web) {
+            Log.d("==>","Will display internal web page");
+            showInternalWebPage();
+            return true;
+
+        }
+## Följande grundsyn gäller dugga-svar: 
+
 
 ```
 function errorCallback(error) {
@@ -33,7 +66,8 @@ function errorCallback(error) {
 
 Bilder läggs i samma mapp som markdown-filen.
 
-![](android.png)
+![](external.png)
+![](internal.png)
 
 Läs gärna:
 
